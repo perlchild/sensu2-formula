@@ -2,7 +2,7 @@
 # vim: ft=yaml
 sensu2:
   pkg: sensu-agent
-  backend-pkg: sensu-backend
+  backend_pkg: sensu-backend
   config: '/etc/sensu'
   service:
     name: sensu2

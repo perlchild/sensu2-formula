@@ -8,4 +8,4 @@ sensu2-pkg:
     - name: {{ sensu2.pkg }}
 sensu2-bpkg:
   pkg.installed:
-    - name: {{ sensu2.backendpkg }}
+    - name: {{ sensu2.backend_pkg }}
