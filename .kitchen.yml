@@ -6,10 +6,14 @@ driver:
   use_sudo: false
 
 platforms:
+  - name: debian-9.3
+    driver_config:
+      privileged: true
+      run_command: /sbin/init
   - name: ubuntu-16.04
     driver_config:
       privileged: true
-      run_command: /usr/sbin/init
+      run_command: /sbin/init
   - name: centos-6.8
   - name: centos-7.3
     driver_config:

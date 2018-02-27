@@ -3,6 +3,8 @@
 
 {% from "sensu2/map.jinja" import sensu2 with context %}
 
+
+
 sensu2-pkg:
   pkg.installed:
     - name: {{ sensu2.pkg }}

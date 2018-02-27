@@ -1,6 +1,32 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
 sensu2:
+  gpg_url: https://packagecloud.io/sensu/prerelease/gpgkey
+  apt_repo: |
+            deb https://packagecloud.io/sensu/prerelease/ubuntu/ trusty main
+            deb-src https://packagecloud.io/sensu/prerelease/ubuntu/ trusty main
+  yum_repo: |
+            [sensu_prerelease]
+            name=sensu_prerelease
+            baseurl=https://packagecloud.io/sensu/prerelease/el/6/$basearch
+            repo_gpgcheck=1
+            gpgcheck=0
+            enabled=1
+            gpgkey=https://packagecloud.io/sensu/prerelease/gpgkey
+            sslverify=1
+            sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+            metadata_expire=300
+
+            [sensu_prerelease-source]
+            name=sensu_prerelease-source
+            baseurl=https://packagecloud.io/sensu/prerelease/el/6/SRPMS
+            repo_gpgcheck=1
+            gpgcheck=0
+            enabled=1
+            gpgkey=https://packagecloud.io/sensu/prerelease/gpgkey
+            sslverify=1
+            sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+            metadata_expire=300
   pkg: sensu-agent
   backend_pkg: sensu-backend
   config: '/etc/sensu'
