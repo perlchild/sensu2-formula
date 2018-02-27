@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{% from "template/map.jinja" import template with context %}
+{% from "sensu2/map.jinja" import sensu2 with context %}
 
-template-config:
+sensu2-config:
   file.managed:
-    - name: {{ template.config }}
-    - source: salt://template/files/example.tmpl
+    - name: {{ sensu2.config }}
+    - source: salt://sensu2/files/example.tmpl
     - mode: 644
     - user: root
     - group: root

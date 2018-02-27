@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 # vim: ft=yaml
-template:
-  pkg: template
-  config: '/etc/template'
+sensu2:
+  pkg: sensu-agent
+  backend-pkg: sensu-backend
+  config: '/etc/sensu'
   service:
-    name: template
+    name: sensu2

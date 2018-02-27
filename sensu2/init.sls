@@ -2,6 +2,6 @@
 # vim: ft=sls
 
 include:
-  - template.install
-  - template.config
-  - template.service
+  - sensu2.install
+  - sensu2.config
+  - sensu2.service

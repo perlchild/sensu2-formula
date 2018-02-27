@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{% from "template/map.jinja" import template with context %}
+{% from "sensu2/map.jinja" import sensu2 with context %}
 
-template-pkg:
+sensu2-pkg:
   pkg.installed:
-    - name: {{ template.pkg }}
+    - name: {{ sensu2.pkg }}
+sensu2-bpkg:
+  pkg.installed:
+    - name: {{ sensu2.backendpkg }}

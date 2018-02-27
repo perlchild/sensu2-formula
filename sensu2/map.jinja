@@ -2,7 +2,7 @@
 # vim: ft=jinja
 
 {## Start with defaults from defaults.yaml ##}
-{% import_yaml 'template/defaults.yaml' as default_settings %}
+{% import_yaml 'sensu2/defaults.yaml' as default_settings %}
 
 {##
 Setup variables using grains['os_family'] based logic, only add key:values
@@ -12,22 +12,22 @@ that differ from what is in defaults.yaml
         'Debian': {},
         'Suse': {},
         'Arch': {
-            "pkg" : 'template-arch',
+            "pkg" : 'sensu2-arch',
         },
         'RedHat': {
-            "config": '/etc/template.conf',
+            "config": '/etc/sensu2.conf',
         },
   }
   , grain="os_family"
-  , merge=salt['pillar.get']('template:lookup'))
+  , merge=salt['pillar.get']('sensu2:lookup'))
 %}
 {## Merge the flavor_map to the default settings ##}
-{% do default_settings.template.update(os_family_map) %}
+{% do default_settings.sensu2.update(os_family_map) %}
 
-{## Merge in template:lookup pillar ##}
-{% set template = salt['pillar.get'](
-        'template',
-        default=default_settings.template,
+{## Merge in sensu2:lookup pillar ##}
+{% set sensu2 = salt['pillar.get'](
+        'sensu2',
+        default=default_settings.sensu2,
         merge=True
     )
 %}

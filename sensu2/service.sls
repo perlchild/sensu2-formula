@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{% from "template/map.jinja" import template with context %}
+{% from "sensu2/map.jinja" import sensu2 with context %}
 
-template-name:
+sensu2-name:
   service.running:
-    - name: {{ template.service.name }}
+    - name: {{ sensu2.service.name }}
     - enable: True
