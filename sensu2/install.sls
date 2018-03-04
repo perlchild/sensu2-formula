@@ -2,8 +2,7 @@
 # vim: ft=sls
 
 {% from "sensu2/map.jinja" import sensu2 with context %}
-
-
+{{sensu2.pkgrepo}}
 
 sensu2-pkg:
   pkg.installed:
