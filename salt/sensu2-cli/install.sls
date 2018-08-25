@@ -4,6 +4,7 @@ require:
   - sensu2.repo
 
 {% from "sensu2/map.jinja" import sensu2 with context %}
+{% from "sensu2-cli/map.jinja" import sensu2cli with context %}
 #sensu2_pkgrepo:
 #  pkgrepo.managed:
 #    - humanname: sensu_prerelease
@@ -21,6 +22,6 @@ sensu2-pkg:
   pkg.installed:
     - name: {{ sensu2.pkg }}
   file.managed:
-    - target: /etc/sensu/agent.yml
-    - source: salt://sensu2/agent.yml.jinja
+    - target: /etc/sensu/backend.yml
+    - source: salt://sensu2-server/backend.yml.jinja
     - template: jinja

@@ -2,7 +2,8 @@
 # vim: ft=jinja
 
 {## Start with defaults from defaults.yaml ##}
-{% import_yaml 'sensu2/defaults.yaml' as default_settings %}
+{% import_yaml 'sensu2/defaults.yaml' as global_settings %}
+{% import_yaml 'sensu2-agent/defaults.yaml' as default_settings %}
 
 {##
 Setup variables using grains['os_family'] based logic, only add key:values
@@ -15,8 +16,6 @@ that differ from what is in defaults.yaml
             "pkg" : 'sensu2-arch',
         },
         'RedHat': {
-            "config": '/etc/sensu2.conf',
-            "pkgrepocontents": dict(baseurl="https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch")
         },
   }
   , grain="os_family"
@@ -26,6 +25,12 @@ that differ from what is in defaults.yaml
 {% do default_settings.sensu2.update(os_family_map) %}
 
 {## Merge in sensu2:lookup pillar ##}
+{% set sensu2 = salt['pillar.get'](
+        'sensu2',
+        default=global_settings.sensu2,
+        merge=True
+    )
+%}
 {% set sensu2 = salt['pillar.get'](
         'sensu2',
         default=default_settings.sensu2,

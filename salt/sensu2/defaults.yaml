@@ -3,9 +3,6 @@
 sensu2:
   url_base: https://packagecloud.io/sensu/prerelease/
   gpg_url_suffix: gpgkey
-  apt_repo: |
-            deb https://packagecloud.io/sensu/prerelease/ubuntu/ trusty main
-            deb-src https://packagecloud.io/sensu/prerelease/ubuntu/ trusty main
   yum_repo: |
             [sensu_prerelease]
             name=sensu_prerelease
@@ -28,7 +25,4 @@ sensu2:
             sslverify=1
             sslcacert=/etc/pki/tls/certs/ca-bundle.crt
             metadata_expire=300
-  pkg: sensu-backend
-  config: '/etc/sensu'
-  service:
-    name: sensu-backend
+  config: '/etc/sensu2'

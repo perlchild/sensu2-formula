@@ -6,7 +6,7 @@ driver:
   use_sudo: false
 
 platforms:
-  - name: debian-9.3
+  - name: debian-9
     driver_config:
       privileged: true
       run_command: /bin/systemd
@@ -14,8 +14,12 @@ platforms:
     driver_config:
       privileged: true
       run_command: /sbin/init
-  - name: centos-6.8
-  - name: centos-7.3
+  - name: ubuntu-18.04
+    driver_config:
+      privileged: true
+      run_command: /sbin/init
+  - name: centos-6
+  - name: centos-7
     driver_config:
       privileged: true
       run_command: /usr/sbin/init
@@ -23,25 +27,28 @@ platforms:
 driver:
   name: vagrant
 platforms:
-    - name: centos-6.9
-    - name: centos-7.3
+    - name: centos-6
+    - name: centos-7
 <% end %>
 
 
 provisioner:
   name: salt_solo
-  formula: sensu2
+  formula: '.'
+  is_file_root: true
+  local_salt_root: '.'
   pillars-from-files:
-    sensu2.sls: pillar.example
+    sensu2.sls: pillar/pillar.example
   pillars:
     top.sls:
       base:
         "*":
-          - sensu2 
+          - sensu2
   state_top:
     base:
       "*":
         - sensu2
+        - sensu2-agent
 
 
 suites:

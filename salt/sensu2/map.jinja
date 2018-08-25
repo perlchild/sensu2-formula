@@ -9,7 +9,10 @@ Setup variables using grains['os_family'] based logic, only add key:values
 that differ from what is in defaults.yaml
 ##}
 {% set os_family_map = salt['grains.filter_by']({
-        'Debian': {},
+        'Debian': {
+        'apt_repo_list': ['deb https://packagecloud.io/sensu/prerelease/debian/ stretch main',
+                        'deb-src https://packagecloud.io/sensu/prerelease/debian/ stretch main'],'file': '/etc/apt/sources.list.d/sensu2.list'
+ },
         'Suse': {},
         'Arch': {
             "pkg" : 'sensu2-arch',

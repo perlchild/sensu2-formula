@@ -3,7 +3,7 @@
 
 {% from "sensu2/map.jinja" import sensu2 with context %}
 
-sensu2-agent:
+sensu2-name:
   service.running:
     - name: {{ sensu2.service.name }}
     - enable: True

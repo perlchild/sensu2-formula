@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+sensu2:
+  pkg: sensu-backend
+  config: '/etc/sensu2'
+  service:
+    name: sensu-backend
