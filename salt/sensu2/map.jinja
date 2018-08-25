@@ -16,9 +16,11 @@ that differ from what is in defaults.yaml
         'Suse': {},
         'Arch': {
             "pkg" : 'sensu2-arch',
-        },'Windows': {config: r'c:\sensu2'},
+        },'Windows': {
+        'config': 'c:\\sensu2',
+        },
         'RedHat': {
-            "config": '/etc/sensu2.conf',
+            "config": '/etc/sensu2',
             "pkgrepocontents": dict(baseurl="https://packagecloud.io/sensu/prerelease/el/$releasever/$basearch")
         },
   }

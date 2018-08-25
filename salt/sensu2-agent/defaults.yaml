@@ -30,6 +30,6 @@ sensu2:
             sslcacert=/etc/pki/tls/certs/ca-bundle.crt
             metadata_expire=300
   pkg: sensu-agent
-  config: /etc/sensu
+  config: /etc/sensu2
   service:
     name: sensu-agent

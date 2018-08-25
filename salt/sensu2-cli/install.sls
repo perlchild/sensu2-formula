@@ -18,7 +18,7 @@ require:
 #    - sslcacert: /etc/pki/tls/certs/ca-bundle.crt
 #    - metadata_expire: 300
 
-sensu2-pkg:
+sensu2-cli:
   pkg.installed:
     - name: {{ sensu2.pkg }}
   file.managed:
